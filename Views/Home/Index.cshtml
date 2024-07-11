@@ -1,0 +1,33 @@
+﻿@model IEnumerable<MiniSimulator.Models.Team>
+
+<div class="container">
+    <br />
+    <div>
+        <a asp-controller="Match" asp-action="Index" class="btn btn-danger btn-block"><i class="fa-solid fa-arrow-left-long"></i>Simulate Matches</a>
+    </div>
+    <div class="row mt-3 mb-3">
+        <div class="col-6">
+            <h2 class="text-primary">Match Teams</h2>
+        </div>
+
+    </div>
+    <div class="row">
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var team in Model)
+            {
+                //Use partial View
+                <partial name="_IndividualTeamCard" model="team" />
+                //Display all products
+
+            }
+        }
+        else
+        {
+            <p>No teams available.</p>
+        }       
+
+    </div>
+
+   
+</div>

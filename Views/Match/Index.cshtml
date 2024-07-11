@@ -1,0 +1,176 @@
+﻿@model MiniSimulator.Models.ViewModels.GroupStageViewModel
+@using System.Linq
+
+@{
+    ViewData["Title"] = "Match Results";
+}
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-6">
+            <h2 class="text-primary">Match Results</h2>
+        </div>
+        
+    </div>
+    <div class="row  pt-4">
+        <!-- Card 1 -->
+        <div class="col-md-4">
+            <div class="card bg-white rounded shadow-sm">
+                <div class="card-header text-center">
+                    Round 1
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4"><strong>Home</strong></div>
+                        <div class="col-4"><strong>Score</strong></div>
+                        <div class="col-4"><strong>Away</strong></div>
+                    </div>
+
+                   @*  <div class="row">
+                        <div class="col-4">Team A</div>
+                        <div class="col-4">X - X</div>
+                        <div class="col-4">Team D</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Team C</div>
+                        <div class="col-4">X - X</div>
+                        <div class="col-4">Team B</div>
+                    </div> *@
+
+                    <div class="row">
+                        <div class="col-4">@Model.Matches[0].HomeTeam.Name</div>
+                        <div class="col-4">@Model.Matches[0].HomeScore - @Model.Matches[0].AwayScore</div>
+                        <div class="col-4">@Model.Matches[0].AwayTeam.Name</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">@Model.Matches[1].HomeTeam.Name</div>
+                        <div class="col-4">@Model.Matches[1].HomeScore - @Model.Matches[1].AwayScore</div>
+                        <div class="col-4">@Model.Matches[1].AwayTeam.Name</div>
+                    </div>
+                
+                   
+            
+                </div>
+            </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="col-md-4">
+            <div class="card bg-white rounded shadow-sm">
+                <div class="card-header text-center">
+                    Round 2
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4"><strong>Home</strong></div>
+                        <div class="col-4"><strong>Score</strong></div>
+                        <div class="col-4"><strong>Away</strong></div>
+                    </div>
+                   @*  <div class="row">
+                        <div class="col-4">Team B</div>
+                        <div class="col-4">X - X</div>
+                        <div class="col-4">Team A</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Team D</div>
+                        <div class="col-4">X - X</div>
+                        <div class="col-4">Team C</div>
+                    </div> *@
+
+                    <div class="row">
+                        <div class="col-4">@Model.Matches[2].HomeTeam.Name</div>
+                        <div class="col-4">@Model.Matches[2].HomeScore - @Model.Matches[2].AwayScore</div>
+                        <div class="col-4">@Model.Matches[2].AwayTeam.Name</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">@Model.Matches[3].HomeTeam.Name</div>
+                        <div class="col-4">@Model.Matches[3].HomeScore - @Model.Matches[3].AwayScore</div>
+                        <div class="col-4">@Model.Matches[3].AwayTeam.Name</div>
+                    </div>
+
+                   
+                </div>
+            </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="col-md-4">
+            <div class="card bg-white rounded shadow-sm">
+                <div class="card-header text-center">
+                    Round 3
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4"><strong>Home</strong></div>
+                        <div class="col-4"><strong>Score</strong></div>
+                        <div class="col-4"><strong>Away</strong></div>
+                    </div>
+                    @* <div class="row">
+                        <div class="col-4">Team D</div>
+                        <div class="col-4">X - X</div>
+                        <div class="col-4">Team B</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Team C</div>
+                        <div class="col-4">X - X</div>
+                        <div class="col-4">Team A</div>
+                    </div> *@
+
+                    <div class="row">
+                        <div class="col-4">@Model.Matches[4].HomeTeam.Name</div>
+                        <div class="col-4">@Model.Matches[4].HomeScore - @Model.Matches[4].AwayScore</div>
+                        <div class="col-4">@Model.Matches[4].AwayTeam.Name</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">@Model.Matches[5].HomeTeam.Name</div>
+                        <div class="col-4">@Model.Matches[5].HomeScore - @Model.Matches[5].AwayScore</div>
+                        <div class="col-4">@Model.Matches[5].AwayTeam.Name</div>
+                    </div>
+                    
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-6">
+            <h2 class="text-primary">Match Details</h2>
+        </div>
+
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <table class="table table-striped rounded shadow-sm">
+                <thead>
+                    <tr>
+                        <th>Position</th>
+                        <th>Team</th>
+                        <th>Played</th>
+                        <th>Win</th>
+                        <th>Draw</th>
+                        <th>Loss</th>
+                        <th>For</th>
+                        <th>Against</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var standing in Model.Standings)
+                    {
+                        <tr>
+                            <td>@standing.Position</td>
+                            <td>@standing.TeamName</td>
+                            <td>@standing.Played</td>
+                            <td>@standing.Wins</td>
+                            <td>@standing.Draws</td>
+                            <td>@standing.Losses</td>
+                            <td>@standing.GoalsFor</td>
+                            <td>@standing.GoalsAgainst</td>
+                            <td>@standing.Points</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
