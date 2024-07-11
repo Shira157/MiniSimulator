@@ -13,4 +13,4 @@ It displays the match results and the group standings, determining which teams a
 ### Prerequisites
 - .NET Core SDK 6.0 or later
 - SQL Server
-- Run the provided SQL script (`Database.sql`) to create the database and populate it with the initial data (Including the 4 teams).
+- Run the provided SQL script (`Database.sql`) found in the Data folder to create the database and populate it with the initial data (Including the 4 teams).
